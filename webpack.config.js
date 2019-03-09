@@ -2,7 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: './src/js/index.js',                        // '.' means the current folderwill look for dependency in which it is working
+  entry: ['babel-polyfill', './src/js/index.js'],                        // '.' means the current folderwill look for dependency in which it is working
   output: {
       path: path.resolve(__dirname, 'dist'),
       filename: 'js/bundle.js' //where to save it

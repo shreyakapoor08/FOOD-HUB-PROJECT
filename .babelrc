@@ -1,0 +1,12 @@
+{
+  "presets" : [
+        ["env", {
+              "targets": {
+                  "browser": [
+                      "last 5 versions",
+                      "ie >= 8" //internet explorer=ie
+                  ]
+              }
+    }]
+  ] //preset is a colletion of code trends form plugin which actually apply transformation of the code
+}
