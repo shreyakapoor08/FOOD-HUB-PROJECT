@@ -33,8 +33,6 @@ const controlSearch = async () => {
 
         try {
 
-
-
             // 4) Search for recipes
             await state.search.getResults();
 
@@ -53,13 +51,11 @@ elements.searchForm.addEventListener('submit', e => {
     controlSearch();
 });
 
-// //TESTING
+//TESTING
 // window.addEventListener('load', e => {
 //     e.preventDefault();
 //     controlSearch();
 // });
-
-
 
 elements.searchResPages.addEventListener('click', e => {
     const btn = e.target.closest('.btn-inline');
@@ -71,40 +67,42 @@ elements.searchResPages.addEventListener('click', e => {
     }
 });
 
+
 /*
 * RECIPE CONTROLLER
  */
+
 const controlRecipe = async () => {
     //get ID from url
     const id = window.location.hash.replace('#', ''); //getting id from url and replace # with space
-  console.log(id);
+    console.log(id);
 
-  if (id) {
-      // Prepare UI for changes
+    if (id) {
+        // Prepare UI for changes
 
-      //Create new recipe object
-      state.recipe = new Recipe(id); //create new recipe object and save it in state
+        //Create new recipe object
+        state.recipe = new Recipe(id); //create new recipe object and save it in state
 
-      // //TESTING
-      // window.r = state.recipe;
+        //TESTING
+        // window.r = state.recipe;
 
-      try {
-          //Get recipe data and parse ingredients
-          await state.recipe.getRecipe(); //call getRecipe , it is an async function so it will return promise
-          console.log(state.recipe.ingredients);
-          state.recipe.parseIngredients();
+        try {
+            //Get recipe data and parse ingredients
+            await state.recipe.getRecipe(); //call getRecipe , it is an async function so it will return promise
+            console.log(state.recipe.ingredients);
+            state.recipe.parseIngredients();
 
-          //Calculate servings and time
-          state.recipe.calcTIme();
-          state.recipe.calcServings();
+            //Calculate servings and time
+            state.recipe.calcTime();
+            state.recipe.calcServings();
 
-          //Render recipe
-          console.log(state.recipe);
-      } catch (err) {
-          alert('Error processing recipe!');
-      }
+            //Render recipe
+            console.log(state.recipe);
+        } catch (err) {
+            alert('Error processing recipe!');
+        }
 
-  }
+    }
 };
 
 

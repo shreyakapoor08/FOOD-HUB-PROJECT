@@ -21,7 +21,7 @@ export default class Recipe {
         }
     }
 
-    calcTIme() {
+    calcTime() {
         //Assuming that we need 15 min for each 3 ingredients
         const numIng = this.ingredients.length;
         const periods = Math.ceil(numIng / 3);
@@ -40,7 +40,7 @@ export default class Recipe {
             // 1) Uniform units
             let ingredient = el.toLowerCase(); //we use let cz we are going to mutate the ingredients
             unitsLong.forEach((unit, i) => {
-                    ingredient = ingredient.replace(unit, unitsShort[i]);
+                ingredient = ingredient.replace(unit, unitsShort[i]);
             });
 
             // 2) Remove parenthesis
@@ -92,3 +92,4 @@ export default class Recipe {
         this.ingredients = newIngredients;
     }
 }
+
