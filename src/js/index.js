@@ -18,7 +18,7 @@ import { elements, renderLoader, clearLoader } from "./views/base";
  */
 
 const state = {};
-window.state = state;
+// window.state = state;
 
 /*
 * SEARCH CONTROLLER
@@ -82,7 +82,7 @@ elements.searchResPages.addEventListener('click', e => {
 const controlRecipe = async () => {
     //get ID from url
     const id = window.location.hash.replace('#', ''); //getting id from url and replace # with space
-    console.log(id);
+    //console.log(id);
 
     if (id) {
         // Prepare UI for changes
@@ -235,4 +235,4 @@ elements.recipe.addEventListener('click', e => {
     }
 });
 
-window.l = new List();
+//window.l = new List();

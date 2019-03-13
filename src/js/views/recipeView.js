@@ -9,16 +9,17 @@ const formatCount = count => {
     if (count) {
         // eg. count = 2.5 --> 5/2 --> 2 1/2
         // eg. count = 0.5 --> 1/2
-        const [int, dec] = count.toString().split('.').map(el => parseInt(el, 10)); //element with base of 10
+        const newCount = Math.round(count * 10000) / 10000;
+        const [int, dec] = newCount.toString().split('.').map(el => parseInt(el, 10)); //element with base of 10
 
-        if (!dec) return count;
+        if (!dec) return newCount;
 
         if (int === 0) {
-            const fr = new Fraction(count); //based on count it will create a fraction
+            const fr = new Fraction(newCount); //based on count it will create a fraction
             return `${fr.numerator}/${fr.denominator}`; //return 1/2
         } else {
             //eg 2.5
-            const fr = new Fraction(count - int); //make fraction of just 0.5 part
+            const fr = new Fraction(newCount - int); //make fraction of just 0.5 part
             return `${int} ${fr.numerator}/${fr.denominator}`;
 
         }
